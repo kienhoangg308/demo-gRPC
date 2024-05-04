@@ -1,0 +1,27 @@
+syntax = "proto3";
+package com.example.proto;
+option java_multiple_files = true;
+
+message UserDto {
+  int32 id = 1;
+  string name = 2;
+}
+
+message UsersDto {
+  repeated UserDto users = 1;
+}
+
+message EmptyDto {
+
+}
+
+message UserNameDto {
+  string name = 1;
+}
+
+service UserService {
+  rpc FindAll(EmptyDto) returns (UsersDto);
+  rpc FindByName(UserNameDto) returns (UserDto);
+  rpc Save(UserDto) returns (EmptyDto);
+  rpc Delete(UserNameDto) returns (EmptyDto);
+}

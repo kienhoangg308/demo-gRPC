@@ -1,0 +1,32 @@
+#server:
+#  port: 8081
+#  grpc-port: 8888
+#spring:
+#  jpa:
+#    generate-ddl: true
+#    hibernate:
+#      ddl-auto: create-drop
+#  output:
+#    ansi:
+#      enabled: ALWAYS
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/grpc?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: Mkmysql2402
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update  # or 'create-drop' based on your requirement
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect  # Change this if you use a different version
+  output:
+    ansi:
+      enabled: ALWAYS
+server:
+  port: 8081
+  grpc-port: 8888
